@@ -25,20 +25,22 @@ export default {
   },
   mounted () {
     this.init()
-    this.timeout()
+    // this.timeout()
   },
   methods: {
     async init () {
-      let res = await this.$axios.post('/news/index')
+      let params = {}
+      let res = await this.$axios.post('/news/index', params)
       this.messageList = res.articles
-    },
-    timeout () {
-      let that = this
-      setTimeout(function () {
-        that.init()
-        that.timeout()
-      }, 3000)
+      console.log(res)
     }
+    // timeout () {
+    //   let that = this
+    //   setTimeout(function () {
+    //     that.init()
+    //     that.timeout()
+    //   }, 3000)
+    // }
   }
 }
 </script>
